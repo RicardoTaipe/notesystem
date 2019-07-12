@@ -38,6 +38,8 @@ app.use(passport.initialize());
 app.use(passport.session());
 app.use(flash());
 //Global Variable
+//Static files
+app.use(express.static(path.join(__dirname, "public")));
 
 app.use((req, res, next) => {
   res.locals.success_msg = req.flash("success_msg");
@@ -50,8 +52,7 @@ app.use((req, res, next) => {
 app.use("/", require("./routes/index"));
 app.use("/users", require("./routes/users"));
 app.use("/notes", require("./routes/notes"));
-//Static files
-app.use(express.static(path.join(__dirname, "public")));
+
 
 app.get("*", (req, res) => {
   res.render("index");
