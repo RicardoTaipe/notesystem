@@ -53,6 +53,10 @@ app.use("/notes", require("./routes/notes"));
 //Static files
 app.use(express.static(path.join(__dirname, "public")));
 
+app.get("*", (req, res) => {
+  res.render("index");
+});
+
 //Starting Server
 app.listen(app.get("port"), () => {
   console.log("Server on port ", app.get("port"));
