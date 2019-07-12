@@ -47,7 +47,7 @@ app.use((req, res, next) => {
   next();
 });
 //Routes
-app.use(require("./routes/index"));
+app.use("/", require("./routes/index"));
 app.use("/users", require("./routes/users"));
 app.use("/notes", require("./routes/notes"));
 //Static files
